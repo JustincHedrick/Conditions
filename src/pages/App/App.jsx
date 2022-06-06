@@ -17,7 +17,12 @@ function App() {
         <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
       </Routes>
       :
-      <LandingPage />
+      <>
+      <Routes>
+        <Route path='/' element={<LandingPage user={user} />}/>
+        <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
+      </Routes>
+      </>
       }
     </main>
   );
