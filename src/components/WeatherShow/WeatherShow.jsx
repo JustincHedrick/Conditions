@@ -25,6 +25,8 @@ export default function WeatherShow(props) {
           <div>
             Its a {getTotal()} star day!
           </div>
+          <div>Sunrise: {new Date(data.current.sunrise * 1000).toLocaleTimeString()}</div>
+          <div>Sunset: {new Date(data.current.sunset * 1000).toLocaleTimeString()}</div>
         </div>
       </>
     </div>
