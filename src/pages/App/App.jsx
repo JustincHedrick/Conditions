@@ -7,10 +7,18 @@ import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 
 function App() {
+  const [user, setUser] = useState(getUser())
 
   return (
     <main className="App">
-        <LandingPage />
+      { user ? 
+      <Routes>
+        <Route path='/' element={<LandingPage user={user} />}/>
+        <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
+      </Routes>
+      :
+      <LandingPage />
+      }
     </main>
   );
 }

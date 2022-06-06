@@ -1,0 +1,20 @@
+.weather-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.title {
+  padding-top: 5vmin;
+}
+
+.weatherformdiv {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+.weather-show {
+  display: flex;
+  padding-top: 5vmin;
+  justify-content: center;
+}

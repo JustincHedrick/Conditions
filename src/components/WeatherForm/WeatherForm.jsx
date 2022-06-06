@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import WeatherShow from '../WeatherShow/WeatherShow'
+import "./WeatherForm.css"
 
 
 export default function WeatherForm () {
@@ -38,20 +39,22 @@ export default function WeatherForm () {
   }
 
   return (
-    <div className="weather">
-      <span className="title">Conditions</span>
+    <>
       <br />
-      <form>
-        <input type="text" placeholder='Latitude' name="latitude" onChange={(e) => handleChange(e)} />
-        <br />
-        <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
+      <div className="weatherformdiv">
+        <form>
+          <input type="text" placeholder='Latitude' name="latitude" onChange={(e) => handleChange(e)} />
+          <br />
+          <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
+            
+        </form>
         <button className="weatherbtn" onClick={(e) => weatherData(e)}>Submit</button>
-      </form>
-      {weather.data !== undefined ? (
-        <div>
-          <WeatherShow data={weather.data} />
-        </div>
-      ) : null}
-    </div>
+      </div>
+        {weather.data !== undefined ? (
+          <div className="weather-show">
+            <WeatherShow data={weather.data} />
+          </div>
+        ) : null}
+    </>
   );
 }
