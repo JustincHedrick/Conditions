@@ -46,11 +46,10 @@ export default function WeatherForm () {
         <br />
         <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
         <button className="weatherbtn" onClick={(e) => weatherData(e)}>Submit</button>
-        {console.log(weather)}
       </form>
       {weather.data !== undefined ? (
         <div>
-          <WeatherShow data={weather} />
+          <WeatherShow data={weather.data} />
         </div>
       ) : null}
     </div>
