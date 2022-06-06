@@ -6,26 +6,25 @@ import LandingPage from '../LandingPage/LandingPage'
 import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 
-function App() {
+export default function App() {
   const [user, setUser] = useState(getUser())
 
   return (
     <main className="App">
-      { user ? 
-      <Routes>
-        <Route path='/' element={<LandingPage user={user} />}/>
-        <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
-      </Routes>
-      :
+      { user ? (
+        
+          <LandingPage user={user} />
+         )
+      : (
       <>
-      <Routes>
-        <Route path='/' element={<LandingPage user={user} />}/>
-        <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
-      </Routes>
-      </>
+        <Routes>
+          <Route path='/' element={<LandingPage />}/>
+          <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
+        </Routes>
+      </> )
       }
     </main>
   );
 }
 
-export default App;
+

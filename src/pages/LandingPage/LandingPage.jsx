@@ -11,18 +11,17 @@ export default function LandingPage({user, setUser}) {
   return (
     <main className="LandingPage">
       <aside>
-        {user ?
+        {user ? 
           <>
             <Link to='/search'>Search</Link>
             <Link to='/mycrags'>My Crags</Link>
             <UserLogOut user={user} setUser={setUser} />  
-          </>
-          :
+          </> 
+          : 
           <>
             <Link to='/login'>Login</Link>
-            <Link to='/signup'>Sign Up</Link>
             <Link to='/search'>Search</Link>
-          </>
+          </> 
         } 
       </aside>
       <div className="weather-form">
