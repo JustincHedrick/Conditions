@@ -11,20 +11,20 @@ export default function App() {
 
   return (
     <main className="App">
-      { user ? (
+      { user ? 
         
-          <LandingPage user={user} />
-         )
-      : (
+          <LandingPage user={user} setUser={setUser}/>
+        
+      :
       <>
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/login' element={<AuthPage setUser={setUser}/>}/>
         </Routes>
-      </> )
+      </>
       }
     </main>
   );
 }
 
-
+ App;
