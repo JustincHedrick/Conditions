@@ -11,21 +11,21 @@ export default function WeatherForm () {
   })
 
   
-  const APIKEY = "3ce857b3e51d7ad8af05cfbc872bd7cf";
-  async function weatherData(e) {
+  // const APIKEY = "3ce857b3e51d7ad8af05cfbc872bd7cf";
+  // async function weatherData(e) {
     
-    e.preventDefault();
+  //   e.preventDefault();
 
-    if (form.latitude === null || form.longitude === null) {
-    alert("Add values");
-    } else {
-    const data = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${form.latitude}8&lon=${form.longitude}&units=imperial&exclude=minutely&appid=${APIKEY}`)
-    .then((res) => res.json())
-    .then((data) => data)
+  //   if (form.latitude === null || form.longitude === null) {
+  //   alert("Add values");
+  //   } else {
+  //   const data = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${form.latitude}8&lon=${form.longitude}&units=imperial&exclude=minutely&appid=${APIKEY}`)
+  //   .then((res) => res.json())
+  //   .then((data) => data)
 
-      setWeather({data:data})
-    }
-  }
+  //     setWeather({data:data})
+  //   }
+  // }
 
   const handleChange = (e) => {
     let name = e.target.name;
