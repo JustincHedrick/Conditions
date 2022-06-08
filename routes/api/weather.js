@@ -3,7 +3,7 @@ const router = express.Router();
 const weatherCtrl = require('../../controllers/api/weather');
 
 // GET /api/
-router.get('/weather', weatherCtrl.getWeatherData);
+router.post('/', weatherCtrl.getWeatherData);
 // GET /api/:id
 // router.get('/weather_address/:id', weatherCtrl.show)
 
