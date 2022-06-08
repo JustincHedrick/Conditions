@@ -2,8 +2,6 @@ const weather = require('../../models/weather')
 const fetch = require('node-fetch')
 
 module.exports = {
-  index,
-  show,
   getWeatherData
 }
 
