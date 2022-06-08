@@ -1,6 +1,6 @@
 // send-request.js
 import { getToken } from './users-service';
-
+const BASE_URL = '/api/weather'
 
 export default async function sendRequest(url, method = 'GET', payload = null) {
   // Fetch accepts an options object as the 2nd argument
@@ -23,3 +23,4 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
   if (res.ok) return res.json();
   throw new Error('Bad Request');
 }
+

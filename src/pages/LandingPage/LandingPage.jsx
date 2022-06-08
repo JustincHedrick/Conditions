@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
-import Weather from '../../components/WeatherForm/Weather'
+import WeatherForm from '../../components/WeatherForm/WeatherForm'
 import './LandingPage.css'
 
 export default function LandingPage({user, setUser}) {
@@ -29,7 +29,7 @@ export default function LandingPage({user, setUser}) {
           <button>Lat/Long</button>
           <button>Name</button>
         </div>
-        <Weather />
+        <WeatherForm />
       </div>
     
     </main>

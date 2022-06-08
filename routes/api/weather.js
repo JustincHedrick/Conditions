@@ -1,20 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const weatherCtrl = require('../../controllers/api/weather');
 
-const fetch = require('node-fetch');
-const APIKEY = process.env.WEATHER_KEY;
-const rootURL = 'https://api.openweathermap.org/'
+// GET /api/
+router.get('/weather', weatherCtrl.index);
+// GET /api/:id
+router.get('/weather_address/:id', weatherCtrl.show)
 
-router.get('/', function (req, res, next) {
+router.post('/search', weatherCtrl.search);
 
-    const latitude = req.query.latitude;
-    const longitude = req.query.longitude
-
-    if (!latitude) return res.render('index', {latitude: null});
-    if (!longitude) return res.render('index', {longitude: null});
-
-    fetch(`${rootURL}/data/2.5/onecall?lat=${latitude}8&lon=${longitude}&units=imperial&exclude=minutely&appid=${APIKEY}`)
-    .then((res) => res.json())
-    .then((data) => res.render('index', { data }))
-    
-  })
+module.exports = router;
