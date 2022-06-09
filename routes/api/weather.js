@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const weatherCtrl = require('../../controllers/api/weather');
 
-// GET /api/
+// post 
 router.post('/', weatherCtrl.getWeatherData);
-// GET /api/:id
-// router.get('/weather_address/:id', weatherCtrl.show)
-
-// router.post('/search', weatherCtrl.search);
+// Post
+router.post('/', weatherCtrl.addWeatherData); 
+//Get
+router.get('/mycrags', weatherCtrl.getUserWeather);
 
 module.exports = router;

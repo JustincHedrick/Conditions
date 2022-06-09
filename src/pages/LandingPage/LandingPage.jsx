@@ -29,7 +29,7 @@ export default function LandingPage({user, setUser}) {
           <button>Lat/Long</button>
           <button>Name</button>
         </div>
-        <WeatherForm />
+        <WeatherForm user={user}/>
       </div>
     
     </main>

@@ -4,21 +4,21 @@ import WeatherShow from '../WeatherShow/WeatherShow'
 import "./WeatherForm.css"
 
 
-export default function WeatherForm () {
-  const [weather, setWeather] = useState([])
+export default function WeatherForm ({user}) {
+  const [weather, setWeather] = useState(undefined)
   const [form, setform] = useState({
+    crag: '',
     latitude: null,
     longitude: null,
   })
 
-  
-  // const APIKEY = "3ce857b3e51d7ad8af05cfbc872bd7cf";
+
   async function weatherData(e) {
     
-    e.preventDefault();
-    const data = await WeatherAPI.getWeatherData(form)
-    setWeather(data.data)
-
+      e.preventDefault();
+      const weather = await WeatherAPI.getWeatherData(form)
+      setWeather(weather)
+    
       
     }
   
@@ -28,6 +28,9 @@ export default function WeatherForm () {
     let name = e.target.name;
     let value = e.target.value;
 
+    if (name === "crag") {
+      setform({...form, crag: value})
+    }
     if (name === "latitude") {
       setform({ ...form, latitude: value})
     }
@@ -41,6 +44,7 @@ export default function WeatherForm () {
       <br />
       <div className="weatherformdiv">
         <form>
+          <input type="text" placeholder='Crag' name='crag' onChange={(e) => handleChange(e)} />
           <input type="text" placeholder='Latitude' name="latitude" onChange={(e) => handleChange(e)} />
           <br />
           <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
@@ -48,9 +52,9 @@ export default function WeatherForm () {
         </form>
         <button className="weatherbtn" onClick={(e) => weatherData(e)}>Submit</button>
       </div>
-        {weather.data !== undefined ? (
+        {weather !== undefined ? (
           <div className="weather-show">
-            <WeatherShow data={weather} />
+            <WeatherShow data={weather} formdata={form} user={user}/>
           </div>
         ) : null}
     </>
