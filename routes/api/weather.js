@@ -5,7 +5,7 @@ const weatherCtrl = require('../../controllers/api/weather');
 // post 
 router.post('/', weatherCtrl.getWeatherData);
 // Post
-router.post('/', weatherCtrl.addWeatherData); 
+router.post('/weather', weatherCtrl.addWeatherData); 
 //Get
 router.get('/mycrags', weatherCtrl.getUserWeather);
 

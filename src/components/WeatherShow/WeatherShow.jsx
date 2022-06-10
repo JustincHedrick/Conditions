@@ -6,7 +6,7 @@ export default function WeatherShow(props) {
   const {saveWeather, setSaveWeather} = useState()
   let total = 0;
 
-  {console.log(data)}
+  // {console.log(data)}
  
   function getTotal() {
     if (data.current.temp > 30 && data.current.temp < 70) total += 1;
@@ -15,10 +15,9 @@ export default function WeatherShow(props) {
     if (data.current.wind_speed > 3 && data.current.wind_speed < 20) total += 1;
     return total;
   }
-  
-  async function handleSave() {
-    let saveWeather = await weatherAPI.addWeatherData(data);
+ 
 
+  async function handleSave() {
     const weatherObj = {
       user: user,
       crag: formdata && formdata.crag,
@@ -27,12 +26,16 @@ export default function WeatherShow(props) {
       current: data && data.current,
       hourly: data && data.hourly,
     }
-    // console.log(weatherObj)
-    console.log(saveWeather)
-    // setSaveWeather(weatherObj)
-  }
-  
+    const saveWeather = await weatherAPI.addWeatherData(weatherObj);
 
+    
+    // console.log(weatherObj.user)
+    // console.log(weatherObj)
+    
+    setSaveWeather(weatherObj)
+  }
+
+  console.log(user)
   return (
     <div className="weathershow">
       <>

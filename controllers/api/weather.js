@@ -15,12 +15,21 @@ async function getWeatherData(req, res) {
 }
 
 async function addWeatherData(req, res) {
-  let newUserWeather = new Weather(req.body)
-  newUserWeather.save((err, Weather))
-  if (err) {
-    res.send(err)
-  }
-  res.json(Weather)
+  const newUserWeather = await Weather(req.body)
+  console.log(newUserWeather)
+ 
+    req.body.user = req.user._id
+    const newWeather = new Weather(req.body)
+    await newWeather.save()
+    res.json(newWeather)
+  // if (err) {
+  //   res.send(err)
+  // } else {
+  //   req.body.user = req.user._id
+  //   const newWeather = new Weather(req.body)
+  //   await newWeather.save()
+  //   res.json(newWeather)
+  // }
 }
 
 async function getUserWeather(req, res) {

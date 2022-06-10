@@ -6,8 +6,8 @@ export function getWeatherData(data) {
   return sendRequest(`${BASE_URL}`, 'POST', data)
 }
 
-export function addWeatherData(data) {
-  return sendRequest(`${BASE_URL}`, 'POST', data)
+export function addWeatherData(weather) {
+  return sendRequest(`${BASE_URL}/weather`, 'POST', weather)
 }
 
 export function getUserWeather() {
