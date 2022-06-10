@@ -4,7 +4,8 @@ const fetch = require('node-fetch')
 module.exports = {
   getWeatherData,
   addWeatherData,
-  getUserWeather
+  getUserWeather,
+  deleteUserWeather
 }
 
 const API_URL = 'https://api.openweathermap.org/'
@@ -27,4 +28,10 @@ async function getUserWeather(req, res) {
   const userSavedWeather = await Weather.find({user: req.user._id})
   console.log(userSavedWeather)
   res.json(userSavedWeather)
+}
+
+async function deleteUserWeather(req, res) {
+  const removeWeather = await Weather.findByIdAndDelete(req.params.id)
+  console.log(removeWeather)
+  res.json(removeWeather)
 }

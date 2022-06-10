@@ -7,6 +7,8 @@ router.post('/', weatherCtrl.getWeatherData);
 // Post
 router.post('/weather', weatherCtrl.addWeatherData); 
 //Get
-router.get('/mycrags', weatherCtrl.getUserWeather);
+router.get('/', weatherCtrl.getUserWeather);
+// Delete
+router.delete('/:id', coinsCtrl.deleteUserWeather);
 
 module.exports = router;

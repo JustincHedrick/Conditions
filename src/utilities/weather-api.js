@@ -11,5 +11,9 @@ export function addWeatherData(weather) {
 }
 
 export function getUserWeather() {
-  return sendRequest(`${BASE_URL}/mycrags`)
+  return sendRequest(`${BASE_URL}`)
+}
+
+export function deleteUserWeather(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }

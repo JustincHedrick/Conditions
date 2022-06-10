@@ -7,18 +7,6 @@
   border-radius: 2vmin;
 }
 
-.LandingPage aside {
-  display: flex;
-  flex-direction: column;
-  justify-content:space-evenly;
-  align-items: center;
-  margin: 3vmin 2vmin;
-  border: 1px solid black;
-  height: 90vh;
-  width: 20vh;
-  background-color: #999999;
-}
-
 .noUserDiv {
   display: flex;
   width: 80vw;
@@ -29,5 +17,58 @@
 
 .no-user-weather-form {
   display: flex;
-  width: 30vw;
+  width: 50%;
+}
+
+.weather-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vmin;
+  width: 85.8vmin;
+  margin-left: 12.2vmin;
+  margin-top: -5vmin;
+  position: absolute;
+}
+
+.weather-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 60%;
+}
+
+.show-users-div {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-left: 120vmin;
+  margin-top: 21vmin;
+  flex-wrap: wrap;
+  height: 50vmin;
+  width: 75vmin;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.weather-show {
+  display: flex;
+  position: absolute;
+  margin-top: 120vmin;
+}
+
+.user-weather-card {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3vmin;
+  height: 25vmin;
+  width: 30vmin;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.user-weather-card button {
+  height: 5vmin;
+  width: 5vmin;
 }

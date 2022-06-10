@@ -3,7 +3,7 @@
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
-  --tan-4: #d0dad7;
+  --tan-4: #ffea69;
   --orange: #8bd6f3;
   --text-light: #968c84;
   --text-dark: #615954;
@@ -22,7 +22,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--tan-4);
   padding: 2vmin;
-  height: 100vh;
+  /* height: 100%; */
 }
 
 code {
@@ -30,9 +30,9 @@ code {
     monospace;
 }
 
-#root {
+/* #root {
   height: 100%;
-}
+} */
 
 .align-ctr {
   text-align: center;

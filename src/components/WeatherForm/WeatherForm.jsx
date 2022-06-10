@@ -14,12 +14,9 @@ export default function WeatherForm ({user}) {
 
 
   async function weatherData(e) {
-    
       e.preventDefault();
       const weather = await WeatherAPI.getWeatherData(form)
       setWeather(weather)
-    
-      
     }
   
   
@@ -41,22 +38,22 @@ export default function WeatherForm ({user}) {
 
   return (
     <>
-      <br />
-      <div className="weatherformdiv">
-        <div className="weather-form-style">
-          <form>
-            <div>
-            <input type="text" placeholder='Crag' name='crag' onChange={(e) => handleChange(e)} />
+        <div className="weather-container">
+          <form className="weather-form-style">
+            <h1>Find your crag</h1>
+            <div className="form-input">
+              <input type="text" placeholder='Crag' name='crag' onChange={(e) => handleChange(e)} />
             </div>
-            <div>
-            <input type="text" placeholder='Latitude' name="latitude" onChange={(e) => handleChange(e)} />
+            <div className="form-input">
+              <input type="text" placeholder='Latitude' name="latitude" onChange={(e) => handleChange(e)} />
             </div>
-            <br />
-            <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
-
+            <div className="form-input">
+              <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
+            </div>
+            <button className="weatherbtn" onClick={(e) => weatherData(e)}>Submit</button>
           </form>
-          <button className="weatherbtn" onClick={(e) => weatherData(e)}>Submit</button>
-        </div>
+          
+        
       
         {weather !== undefined ? (
           <div className="weather-show">

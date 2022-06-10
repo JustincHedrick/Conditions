@@ -1,8 +1,10 @@
 import {useState, useEffect} from 'react'
+import './WeatherShow.css'
 import * as weatherAPI from '../../utilities/weather-api'
 
 export default function WeatherShow(props) {
   const { data, formdata, user } = props;
+  // const [refresh, setRefresh] = useState(true)
   const {saveWeather, setSaveWeather} = useState()
   let total = 0;
 
@@ -27,19 +29,15 @@ export default function WeatherShow(props) {
       hourly: data && data.hourly,
     }
     const saveWeather = await weatherAPI.addWeatherData(weatherObj);
-
-    
-    // console.log(weatherObj.user)
-    // console.log(weatherObj)
-    
+    // setRefresh(!refresh)
     setSaveWeather(weatherObj)
   }
 
-  console.log(user)
   return (
     <div className="weathershow">
       <>
         <div className="maincard">
+          <h1>Weather Data</h1>
           <span className="titlecard">
             <span>Crag: {formdata.crag} Latitude: {data.lat}, Longitude: {data.lon}</span>
           </span>

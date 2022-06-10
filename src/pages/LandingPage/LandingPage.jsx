@@ -1,31 +1,35 @@
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import WeatherForm from '../../components/WeatherForm/WeatherForm'
 import AuthPage from '../../components/Authpage/AuthPage'
-import ShowUserWeather from '../../components/ShowUsersWeather/ShowUsersWeather'
+import ShowUsersWeather from '../../components/ShowUsersWeather/ShowUsersWeather'
+import WeatherShow from '../../components/WeatherShow/WeatherShow'
 import './LandingPage.css'
 
-export default function LandingPage({user, setUser}) {
+export default function LandingPage({user, setUser, data, formdata}) {
   return (
-    <main className="LandingPage">
-      <aside>
+    <div className="LandingPage">
+      <div className="logout-div">
         {user ? 
           <>
-            <Link to="/">Home</Link>
-            <Link to="/mycrags">MyCrags</Link>
-            
             <UserLogOut user={user} setUser={setUser} />   
-            
           </> 
           : 
           <>
             
           </> 
         } 
-      </aside>
-      <div className="weather-form">
+      </div>
+      
         {user ? 
-        <WeatherForm user={user}/>
+        <>
+        <div className="weather-form">
+          <WeatherForm user={user}/>
+        </div>
+        <div className='show-users-div'>
+          <ShowUsersWeather user={user} />
+        </div>
+        </>
         :
         <>
         <div className="noUserDiv">
@@ -38,9 +42,9 @@ export default function LandingPage({user, setUser}) {
         </div>
         </>
         } 
-      </div>
       
-    </main>
+      
+    </div>
   );
 }
 
