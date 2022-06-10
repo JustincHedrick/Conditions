@@ -1,37 +1,45 @@
-import { useState } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
-import { getUser } from '../../utilities/users-service';
+import { Link, Routes, Route } from 'react-router-dom'
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import WeatherForm from '../../components/WeatherForm/WeatherForm'
+import AuthPage from '../../components/Authpage/AuthPage'
+import ShowUserWeather from '../../components/ShowUsersWeather/ShowUsersWeather'
 import './LandingPage.css'
 
 export default function LandingPage({user, setUser}) {
-  // const [user, setUser] = useState(getUser());
-
   return (
     <main className="LandingPage">
       <aside>
         {user ? 
           <>
-            <Link to='/search'>Search</Link>
-            <Link to='/mycrags'>My Crags</Link>
-            <UserLogOut user={user} setUser={setUser} />  
+            <Link to="/">Home</Link>
+            <Link to="/mycrags">MyCrags</Link>
+            
+            <UserLogOut user={user} setUser={setUser} />   
+            
           </> 
           : 
           <>
-            <Link to='/login'>Login</Link>
-            <Link to='/search'>Search</Link>
+            
           </> 
         } 
       </aside>
       <div className="weather-form">
-        <div>
-          <button>Lat/Long</button>
-          <button>Name</button>
-        </div>
+        {user ? 
         <WeatherForm user={user}/>
+        :
+        <>
+        <div className="noUserDiv">
+          <div className="no-user-weather-form">
+            <WeatherForm />
+          </div>  
+          <div>
+            <AuthPage setUser={setUser}/>
+          </div>
+        </div>
+        </>
+        } 
       </div>
-    
+      
     </main>
   );
 }

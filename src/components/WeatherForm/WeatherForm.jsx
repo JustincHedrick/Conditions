@@ -43,20 +43,27 @@ export default function WeatherForm ({user}) {
     <>
       <br />
       <div className="weatherformdiv">
-        <form>
-          <input type="text" placeholder='Crag' name='crag' onChange={(e) => handleChange(e)} />
-          <input type="text" placeholder='Latitude' name="latitude" onChange={(e) => handleChange(e)} />
-          <br />
-          <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
-            
-        </form>
-        <button className="weatherbtn" onClick={(e) => weatherData(e)}>Submit</button>
-      </div>
+        <div className="weather-form-style">
+          <form>
+            <div>
+            <input type="text" placeholder='Crag' name='crag' onChange={(e) => handleChange(e)} />
+            </div>
+            <div>
+            <input type="text" placeholder='Latitude' name="latitude" onChange={(e) => handleChange(e)} />
+            </div>
+            <br />
+            <input type="text" placeholder='Longitude' name='longitude' onChange={(e) => handleChange(e) } />
+
+          </form>
+          <button className="weatherbtn" onClick={(e) => weatherData(e)}>Submit</button>
+        </div>
+      
         {weather !== undefined ? (
           <div className="weather-show">
             <WeatherShow data={weather} formdata={form} user={user}/>
           </div>
         ) : null}
+        </div>
     </>
   );
 }

@@ -18,3 +18,16 @@
   width: 20vh;
   background-color: #999999;
 }
+
+.noUserDiv {
+  display: flex;
+  width: 80vw;
+  height: 90vh;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.no-user-weather-form {
+  display: flex;
+  width: 30vw;
+}
