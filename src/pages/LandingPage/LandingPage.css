@@ -56,7 +56,9 @@
 .weather-show {
   display: flex;
   position: absolute;
-  margin-top: 120vmin;
+  margin-top: 108vmin;
+  height: 50vmin;
+  border: 2px black solid;
 }
 
 .user-weather-card {

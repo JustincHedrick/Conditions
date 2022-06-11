@@ -4,12 +4,14 @@ import * as weatherAPI from '../../utilities/weather-api'
 
 export default function WeatherShow(props) {
   const { data, formdata, user } = props;
-  // const [refresh, setRefresh] = useState(true)
-  const {saveWeather, setSaveWeather} = useState()
+  const [saveWeather, setSaveWeather] = useState()
   let total = 0;
 
-  // {console.log(data)}
  
+  const reloadPage = () => {
+    window.location.reload()
+  }
+
   function getTotal() {
     if (data.current.temp > 30 && data.current.temp < 70) total += 1;
     if (data.current.humidity < 60) total += 1
@@ -17,7 +19,6 @@ export default function WeatherShow(props) {
     if (data.current.wind_speed > 3 && data.current.wind_speed < 20) total += 1;
     return total;
   }
- 
 
   async function handleSave() {
     const weatherObj = {
@@ -29,8 +30,7 @@ export default function WeatherShow(props) {
       hourly: data && data.hourly,
     }
     const saveWeather = await weatherAPI.addWeatherData(weatherObj);
-    // setRefresh(!refresh)
-    setSaveWeather(weatherObj)
+    setSaveWeather(saveWeather)
   }
 
   return (
@@ -52,7 +52,7 @@ export default function WeatherShow(props) {
           <div>Sunrise: {new Date(data.current.sunrise * 1000).toLocaleTimeString()}</div>
           <div>Sunset: {new Date(data.current.sunset * 1000).toLocaleTimeString()}</div>
           {user ? 
-            <button onClick={handleSave}>Save {formdata.crag}</button>
+            <button onClick={function(){handleSave(); reloadPage()}}>Save {formdata.crag}</button>
             :
             <h5>Signup to save crags!</h5>
           }

@@ -9,6 +9,6 @@ router.post('/weather', weatherCtrl.addWeatherData);
 //Get
 router.get('/', weatherCtrl.getUserWeather);
 // Delete
-router.delete('/:id', coinsCtrl.deleteUserWeather);
+router.delete('/:id', weatherCtrl.deleteUserWeather);
 
 module.exports = router;
