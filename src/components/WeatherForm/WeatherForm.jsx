@@ -4,22 +4,7 @@ import WeatherShow from '../WeatherShow/WeatherShow'
 import "./WeatherForm.css"
 
 
-export default function WeatherForm ({user}) {
-  const [weather, setWeather] = useState(undefined)
-  const [form, setform] = useState({
-    crag: '',
-    latitude: null,
-    longitude: null,
-  })
-
-
-  async function weatherData(e) {
-      e.preventDefault();
-      const weather = await WeatherAPI.getWeatherData(form)
-      setWeather(weather)
-    }
-  
-  
+export default function WeatherForm ({user, handleSave, form, setform, weather, setWeather, weatherData}) {
 
   const handleChange = (e) => {
     let name = e.target.name;
@@ -57,7 +42,7 @@ export default function WeatherForm ({user}) {
       
         {weather !== undefined ? (
           <div className="weather-show">
-            <WeatherShow data={weather} formdata={form} user={user}/>
+            <WeatherShow data={weather} formdata={form} user={user} handleSave={handleSave}/>
           </div>
         ) : null}
         </div>

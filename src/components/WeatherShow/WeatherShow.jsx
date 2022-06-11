@@ -1,16 +1,11 @@
 import {useState, useEffect} from 'react'
 import './WeatherShow.css'
-import * as weatherAPI from '../../utilities/weather-api'
+
 
 export default function WeatherShow(props) {
-  const { data, formdata, user } = props;
-  const [saveWeather, setSaveWeather] = useState()
+  const { data, formdata, user, handleSave } = props;
+  
   let total = 0;
-
- 
-  const reloadPage = () => {
-    window.location.reload()
-  }
 
   function getTotal() {
     if (data.current.temp > 30 && data.current.temp < 70) total += 1;
@@ -20,24 +15,12 @@ export default function WeatherShow(props) {
     return total;
   }
 
-  async function handleSave() {
-    const weatherObj = {
-      user: user,
-      crag: formdata && formdata.crag,
-      lat: data && data.lat,
-      lon: data && data.lon,
-      current: data && data.current,
-      hourly: data && data.hourly,
-    }
-    const saveWeather = await weatherAPI.addWeatherData(weatherObj);
-    setSaveWeather(saveWeather)
-  }
-
   return (
     <div className="weathershow">
       <>
+      <h1>Weather Data</h1>
         <div className="maincard">
-          <h1>Weather Data</h1>
+          
           <span className="titlecard">
             <span>Crag: {formdata.crag} Latitude: {data.lat}, Longitude: {data.lon}</span>
           </span>
@@ -52,7 +35,7 @@ export default function WeatherShow(props) {
           <div>Sunrise: {new Date(data.current.sunrise * 1000).toLocaleTimeString()}</div>
           <div>Sunset: {new Date(data.current.sunset * 1000).toLocaleTimeString()}</div>
           {user ? 
-            <button onClick={function(){handleSave(); reloadPage()}}>Save {formdata.crag}</button>
+            <button onClick={function(){handleSave()}}>Save {formdata.crag}</button>
             :
             <h5>Signup to save crags!</h5>
           }
