@@ -50,9 +50,17 @@ export default function LandingPage({user, setUser, data, formdata}) {
           </> 
         } 
       </div>
-      
+        <div className="intro">
+          <br />
+          <span>Find the upcoming conditions for any climbing spot in the world!</span>
+          <br />
+          <span>Our not-so-patended algorithm will determine the quality of the day with a 5 point scale.</span>
+          <br />
+          <span>Conditions recommends visiting Mountain Project to obtain the coordinates for each location.</span>
+        </div>
         {user ? 
         <>
+        
         <div className="weather-form">
           <WeatherForm user={user} form={form} setform={setform} weather={weather} setWeather={setWeather} weatherData={weatherData} handleSave={handleSave} refresh={refresh} setRefresh={setRefresh}/>
         </div>

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const weatherCtrl = require('../../controllers/api/weather');
 
-// post 
+// Post 
 router.post('/', weatherCtrl.getWeatherData);
 // Post
 router.post('/weather', weatherCtrl.addWeatherData); 

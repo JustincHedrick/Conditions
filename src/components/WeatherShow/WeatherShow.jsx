@@ -6,7 +6,6 @@ export default function WeatherShow(props) {
   const { data, formdata, user, handleSave } = props;
   
   let total = 0;
-  // let dailyTotal = 0;
 
   function getTotal() {
     if (data.current.temp > 30 && data.current.temp < 70) total += 1;
@@ -15,14 +14,6 @@ export default function WeatherShow(props) {
     if (data.current.wind_speed > 3 && data.current.wind_speed < 20) total += 1;
     return total;
   }
-
-  // function getDailyTotal() {
-  //   if (data.daily.temp > 30 && data.current.temp < 70) total += 1;
-  //   if (data.current.humidity < 60) total += 1
-  //   if (data.current.dew_point * 2 < data.current.temp) total += 1;
-  //   if (data.current.wind_speed > 3 && data.current.wind_speed < 20) total += 1;
-  //   return total;
-  // }
 
   return (
     <>
@@ -51,7 +42,7 @@ export default function WeatherShow(props) {
       <div className="daily-show">
         <h1>3 Day Forecast</h1>
         <div className="daily-container">
-          <div className="day-one-show">
+          <div className="day-show">
             <h5>{new Date(data.daily[1].dt * 1000).toLocaleDateString()}</h5>
             <div>Max Temp: {data.daily[1].temp.max}</div>
             <div>Min Temp: {data.daily[1].temp.min}</div>  
@@ -62,7 +53,7 @@ export default function WeatherShow(props) {
             <div>Chance of rain: {data.daily[1].pop * 100}%</div>
             <img src={`http://openweathermap.org/img/w/${data.daily[1].weather[0].icon}.png`} />
           </div>
-          <div className="day-two-show">
+          <div className="day-show">
             <h5>{new Date(data.daily[2].dt * 1000).toLocaleDateString()}</h5>
             <div>Max Temp: {data.daily[2].temp.max}</div>
             <div>Min Temp: {data.daily[2].temp.min}</div>  
@@ -73,7 +64,7 @@ export default function WeatherShow(props) {
             <div>Chance of rain: {data.daily[2].pop * 100}%</div>
             <img src={`http://openweathermap.org/img/w/${data.daily[2].weather[0].icon}.png`} />
           </div>
-          <div className="day-three-show">
+          <div className="day-show">
             <h5>{new Date(data.daily[3].dt * 1000).toLocaleDateString()}</h5>
             <div>Max Temp: {data.daily[3].temp.max}</div>
             <div>Min Temp: {data.daily[3].temp.min}</div>  

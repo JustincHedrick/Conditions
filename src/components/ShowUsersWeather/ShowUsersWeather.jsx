@@ -26,6 +26,7 @@ export default function UserWeatherShow({saveWeather, refresh, setRefresh}) {
         {userWeather && userWeather.map(weather => 
           <div key={weather._id} className='user-weather-card'>
             <div>{weather.crag}</div>
+            {console.log(userWeather)}
             <div>Current temp: {weather.current.temp}</div>
             <button onClick={function(){deleteUserWeather(weather._id)}} >X</button>
           </div>)}
