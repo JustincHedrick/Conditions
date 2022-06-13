@@ -4,7 +4,7 @@ import WeatherShow from '../WeatherShow/WeatherShow'
 import "./WeatherForm.css"
 
 
-export default function WeatherForm ({user, handleSave, form, setform, weather, setWeather, weatherData}) {
+export default function WeatherForm ({user, handleSave, form, setform, weather, setWeather, weatherData, refresh, setRefresh}) {
 
   const handleChange = (e) => {
     let name = e.target.name;
@@ -42,7 +42,7 @@ export default function WeatherForm ({user, handleSave, form, setform, weather, 
       
         {weather !== undefined ? (
           <div className="weather-show">
-            <WeatherShow data={weather} formdata={form} user={user} handleSave={handleSave}/>
+            <WeatherShow data={weather} formdata={form} user={user} handleSave={handleSave} refresh={refresh} setrefresh={setRefresh}/>
           </div>
         ) : null}
         </div>

@@ -2,10 +2,10 @@ import * as weatherAPI from '../../utilities/weather-api'
 import { Link, useState, useEffect } from 'react'
 import './ShowUsersWeather.css'
 
-export default function UserWeatherShow({saveWeather}) {
+export default function UserWeatherShow({saveWeather, refresh, setRefresh}) {
 
   const [userWeather, setUserWeather] = useState()
-
+  
 
   useEffect(() => {
     async function getUserWeather() {
@@ -14,11 +14,11 @@ export default function UserWeatherShow({saveWeather}) {
     }
     
     getUserWeather();
-  }, [saveWeather, deleteUserWeather] );
+  }, [refresh] );
 
   async function deleteUserWeather(id) {
     const remove = await weatherAPI.deleteUserWeather(id);
-
+    setRefresh(!refresh)
   }
 
   return (
@@ -27,7 +27,7 @@ export default function UserWeatherShow({saveWeather}) {
           <div key={weather._id} className='user-weather-card'>
             <div>{weather.crag}</div>
             <div>Current temp: {weather.current.temp}</div>
-            <button onClick={function(){deleteUserWeather(weather._id)}}>X</button>
+            <button onClick={function(){deleteUserWeather(weather._id)}} >X</button>
           </div>)}
     </>
   )

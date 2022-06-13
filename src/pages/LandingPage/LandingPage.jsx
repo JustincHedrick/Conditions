@@ -14,6 +14,7 @@ export default function LandingPage({user, setUser, data, formdata}) {
     longitude: null,
   })
   const [weather, setWeather] = useState(undefined)
+  const [refresh, setRefresh] = useState(false)
 
     async function handleSave() {
     const weatherObj = {
@@ -25,7 +26,7 @@ export default function LandingPage({user, setUser, data, formdata}) {
       hourly: weather && weather.hourly,
     }
     const saveWeather = await weatherAPI.addWeatherData(weatherObj);
-    console.log(saveWeather)
+    setRefresh(!refresh)
     setSaveWeather(saveWeather)
   }
 
@@ -53,10 +54,10 @@ export default function LandingPage({user, setUser, data, formdata}) {
         {user ? 
         <>
         <div className="weather-form">
-          <WeatherForm user={user} form={form} setform={setform} weather={weather} setWeather={setWeather} weatherData={weatherData} handleSave={handleSave}/>
+          <WeatherForm user={user} form={form} setform={setform} weather={weather} setWeather={setWeather} weatherData={weatherData} handleSave={handleSave} refresh={refresh} setRefresh={setRefresh}/>
         </div>
         <div className='show-users-div'>
-          <ShowUsersWeather user={user} saveWeather={saveWeather}/>
+          <ShowUsersWeather user={user} saveWeather={saveWeather} refresh={refresh} setRefresh={setRefresh}/>
         </div>
         <div>
         </div>
