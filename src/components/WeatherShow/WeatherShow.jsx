@@ -6,6 +6,7 @@ export default function WeatherShow(props) {
   const { data, formdata, user, handleSave } = props;
   
   let total = 0;
+  // let dailyTotal = 0;
 
   function getTotal() {
     if (data.current.temp > 30 && data.current.temp < 70) total += 1;
@@ -15,12 +16,19 @@ export default function WeatherShow(props) {
     return total;
   }
 
+  // function getDailyTotal() {
+  //   if (data.daily.temp > 30 && data.current.temp < 70) total += 1;
+  //   if (data.current.humidity < 60) total += 1
+  //   if (data.current.dew_point * 2 < data.current.temp) total += 1;
+  //   if (data.current.wind_speed > 3 && data.current.wind_speed < 20) total += 1;
+  //   return total;
+  // }
+
   return (
-    <div className="weathershow">
+    <>
+      <h1>Current Weather</h1>
       <>
-      <h1>Weather Data</h1>
-        <div className="maincard">
-          
+      <div className="weathershow">
           <span className="titlecard">
             <span>Crag: {formdata.crag} Latitude: {data.lat}, Longitude: {data.lon}</span>
           </span>
@@ -40,7 +48,49 @@ export default function WeatherShow(props) {
             <h5>Signup to save crags!</h5>
           }
         </div>
+      <div className="daily-show">
+        <h1>3 Day Forecast</h1>
+        <div className="daily-container">
+          <div className="day-one-show">
+            <h5>{new Date(data.daily[1].dt * 1000).toLocaleDateString()}</h5>
+            <div>Max Temp: {data.daily[1].temp.max}</div>
+            <div>Min Temp: {data.daily[1].temp.min}</div>  
+            <div>Humidity: {data.daily[1].humidity}</div>
+            <div>Dew Point: {data.daily[1].dew_point}</div>
+            <div>Wind Speed: {data.daily[1].wind_speed}mph</div>
+            <div>Cloud Coverage: {data.daily[1].clouds}%</div>
+            <div>Chance of rain: {data.daily[1].pop * 100}%</div>
+            <img src={`http://openweathermap.org/img/w/${data.daily[1].weather[0].icon}.png`} />
+          </div>
+          <div className="day-two-show">
+            <h5>{new Date(data.daily[2].dt * 1000).toLocaleDateString()}</h5>
+            <div>Max Temp: {data.daily[2].temp.max}</div>
+            <div>Min Temp: {data.daily[2].temp.min}</div>  
+            <div>Humidity: {data.daily[2].humidity}</div>
+            <div>Dew Point: {data.daily[2].dew_point}</div>
+            <div>Wind Speed: {data.daily[2].wind_speed}mph</div>
+            <div>Cloud Coverage: {data.daily[2].clouds}%</div>
+            <div>Chance of rain: {data.daily[2].pop * 100}%</div>
+            <img src={`http://openweathermap.org/img/w/${data.daily[2].weather[0].icon}.png`} />
+          </div>
+          <div className="day-three-show">
+            <h5>{new Date(data.daily[3].dt * 1000).toLocaleDateString()}</h5>
+            <div>Max Temp: {data.daily[3].temp.max}</div>
+            <div>Min Temp: {data.daily[3].temp.min}</div>  
+            <div>Humidity: {data.daily[3].humidity}</div>
+            <div>Dew Point: {data.daily[3].dew_point}</div>
+            <div>Wind Speed: {data.daily[3].wind_speed}mph</div>
+            <div>Cloud Coverage: {data.daily[3].clouds}%</div>
+            <div>Chance of rain: {data.daily[3].pop * 100}%</div>
+            <img src={`http://openweathermap.org/img/w/${data.daily[3].weather[0].icon}.png`} />
+            
+          </div>
+        </div>
+      </div>
+      <div className="imaginary">
+
+      </div>
       </>
-    </div>
+    </>
   )
 }

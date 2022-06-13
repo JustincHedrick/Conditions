@@ -17,7 +17,6 @@ export default function App() {
             <Route path='/' element={<LandingPage user={user} setUser={setUser}/>}/>
             <Route path='/mycrags' element={<ShowUserWeather user={user} setUser={setUser} />}/>
       </Routes>
-      {/* <LandingPage user={user} setUser={setUser}/> */}
       </>
       :
       <LandingPage setUser={setUser}/>

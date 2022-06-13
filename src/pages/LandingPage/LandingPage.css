@@ -56,8 +56,8 @@
 .weather-show {
   display: flex;
   position: absolute;
-  margin-top: 120vmin;
-  height: 50vmin;
+  margin-top: 130vmin;
+  height: 40vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,6 +72,35 @@
     0 12px 12px rgba(128, 128, 128, 0.35);
 }
 
+.daily-show {
+  position: absolute;
+  margin-top: 120vmin;
+  margin-left: 90vmin;
+  height: 60vmin;
+  width: 150vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px;
+  color: black;
+  background: #61dafb;
+  border-radius: 10px;
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+.daily-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 140vmin;
+  border: 1px solid black;
+}
+
 .user-weather-card {
   display: flex;
   flex-direction: column;
@@ -84,4 +113,11 @@
 .user-weather-card button {
   height: 5vmin;
   width: 5vmin;
+}
+
+.imaginary {
+  position: absolute;
+  margin-top: 180vmin;
+  height: 20vmin;
+  width: 20vmin;
 }

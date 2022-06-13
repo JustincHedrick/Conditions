@@ -65,7 +65,7 @@ export default function LandingPage({user, setUser, data, formdata}) {
         <>
         <div className="noUserDiv">
           <div className="no-user-weather-form">
-            <WeatherForm />
+            <WeatherForm form={form} setform={setform} weather={weather} setWeather={setWeather} weatherData={weatherData} handleSave={handleSave}/>
           </div>  
           <div>
             <AuthPage setUser={setUser}/>
@@ -78,4 +78,3 @@ export default function LandingPage({user, setUser, data, formdata}) {
     </div>
   );
 }
-

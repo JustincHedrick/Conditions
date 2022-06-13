@@ -16,8 +16,7 @@ async function getWeatherData(req, res) {
 }
 
 async function addWeatherData(req, res) {
-  const newUserWeather = await Weather(req.body)
- 
+  
     req.body.user = req.user._id
     const newWeather = new Weather(req.body)
     await newWeather.save()
